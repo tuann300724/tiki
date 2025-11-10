@@ -160,14 +160,36 @@ app.get('/', (req, res) => {
   </style>
     </head>
     <body>
-      <h1>Ông Trùm Rút VTS</h1>
-      <h2>Thanh toán MoMo Tiki</h2>
+    <header>
+  <div class="logo"></div>
+  <h1>Ông Trùm Rút VTS</h1>
+  <h2>Thanh toán MoMo Tiki</h2>
+</header>
 
-      <button onclick="confirmPay(1559413,'50.000đ')">💸 Thanh toán 50.000đ</button>
-      <button onclick="confirmPay(1559417,'100.000đ')">💸 Thanh toán 100.000đ</button>
-      <button onclick="confirmPay(1559583,'200.000đ')">💸 Thanh toán 200.000đ</button>
+<div class="illustration"></div>
 
-      <div class="loading" id="loading">Đang tạo link thanh toán...</div>
+<div class="btn-container">
+  <button onclick="confirmPay(1559413,'50.000đ')">💸 Thanh toán 50.000đ</button>
+  <button onclick="confirmPay(1559417,'100.000đ')">💸 Thanh toán 100.000đ</button>
+  <button onclick="confirmPay(1559583,'200.000đ')">💸 Thanh toán 200.000đ</button>
+</div>
+
+<footer>© 2025 Ông Trùm Rút VTS - Bản quyền giữ toàn bộ</footer>
+
+<div class="popup" id="confirmPopup">
+  <div class="popup-content">
+    <h3 id="popupMessage">Bạn có chắc muốn thanh toán?</h3>
+    <div>
+      <button id="confirmYes">Có</button>
+      <button id="confirmNo" style="background:#ccc;color:#333;">Hủy</button>
+    </div>
+  </div>
+</div>
+
+<div class="loading" id="loading">
+  <div class="spinner"></div>
+  Đang tạo link thanh toán...
+</div>
 
       <script>
         let selectedProductId = null;
