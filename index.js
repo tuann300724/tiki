@@ -81,4 +81,4 @@ app.get('/success', (req, res) => {
 
 // ✅ Khởi chạy server
 const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => console.log(`🚀 Server chạy tại https://tuann300724.github.io/tiki/`));
+app.listen(PORT, () => console.log(`🚀 Server chạy tại http://localhost:${PORT}`));
