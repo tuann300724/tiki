@@ -1,6 +1,8 @@
 require('dotenv').config();
 const express = require('express');
 const axios = require('axios');
+const cors = require('cors');
+app.use(cors());
 
 const app = express();
 app.use(express.json());
@@ -43,7 +45,7 @@ app.get('/', (req, res) => {
           if(!confirm('Bạn có chắc muốn thanh toán '+label+'?')) return;
           document.getElementById('loading').style.display='flex';
 
-          fetch('/tiki-create',{
+          fetch('https://tiki-ffkp.onrender.com/tiki-create',{
             method:'POST',
             headers:{'Content-Type':'application/json'},
             body:JSON.stringify({product_id:selectedProductId,qty:1})
