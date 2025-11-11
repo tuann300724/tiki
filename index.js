@@ -4,12 +4,14 @@ const axios = require('axios');
 
 const app = express();
 
-app.use((req, res, next) => {
+// Cho phép trình duyệt gửi preflight request
+app.options('*', (req, res) => {
   res.setHeader("Access-Control-Allow-Origin", "*");
-  res.setHeader("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE");
+  res.setHeader("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS");
   res.setHeader("Access-Control-Allow-Headers", "Content-Type, Authorization");
-  next();
+  res.sendStatus(200);
 });
+
 
 app.use(express.json());
 
