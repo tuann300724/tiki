@@ -3,8 +3,15 @@ const express = require('express');
 const axios = require('axios');
 const cors = require('cors');
 
-const app = express();     // ✅ tạo app trước
-app.use(cors());           // ✅ rồi mới dùng app
+const app = express();
+
+// ✅ Bật CORS cho GET + POST
+app.use(cors({
+    origin: "*",
+    methods: ["GET", "POST"],
+    allowedHeaders: ["Content-Type", "Authorization", "x-access-token", "x-guest-token"]
+}));
+
 app.use(express.json());
 
 // ==============================
